@@ -2,14 +2,6 @@
 
 # 2x2 Hill Cipher
 
-# 1131120991 Younes Lariani       : Compilation, Design, Matrix Inverse
-# 1121115569 Yap Chew Wai         : Letter to Number Translator
-# 1141123443 Wut Hmone Hnin Hlaing: Matrix Product
-# 1121116065 Yong Qian Xiang      : Report
-
-# Function to end the program, prints time elapsed
-# by 1131120991 Younes Lariani
-
 function end {
 	timeElapsed=$(( $(date +"%s%6N") - $start ))
 	if [ $quickMode != "true" ]; then
@@ -23,7 +15,7 @@ function end {
 }
 
 # Function to print 2xn matrix
-# by 1131120991 Younes Lariani
+
 
 function printMatrix {
 	declare -a A=("${!1}")
@@ -39,7 +31,7 @@ function printMatrix {
 }
 
 # Letter to Number Translator
-# by 1121115569 Yap Chew Wai
+
 
 function let2num {
 	for i in `echo "$1" | tr '[:lower:]' '[:upper:]' | grep -o . ` ; do
@@ -48,7 +40,7 @@ function let2num {
 }
 
 # Number to Letter Translator
-# by 1131120991 Younes Lariani
+
 
 function num2let {
 	declare -a A=("${!1}")
@@ -58,14 +50,14 @@ function num2let {
 }
 
 # Modulus Correction Function
-# by 1131120991 Younes Lariani 1131120991
+
 
 function mod {
 	echo $(((( $1 % $2 ) + $2 ) % $2 ))
 }
 
 # 2x2 Matrix Inverse
-# by 1131120991 Younes Lariani 1131120991
+
 
 function matrixInverse {
 	#Evaluating the determinant
@@ -113,7 +105,6 @@ function matrixInverse {
 }
 
 # Matrix Product
-# by 1141123443 Wut Hmone Hnin Hlaing
 
 function matrixProduct {
 	cols=$(( ${#M[@]} / $rows ))
@@ -146,7 +137,7 @@ quickMode=false
 
 if [ $# == 0 ]; then
 	# Menu mode
-	# by 1121115569 Yap Chew Wai
+	
 	
 	echo "Please select mode"
 	select choice in "Encryption" "Decryption" "Exit"; do
@@ -179,7 +170,7 @@ if [ $# == 0 ]; then
 	fi
 elif [[ ($# == 3) || ($# == 4 && $4 == "quick") ]]; then
 	# Parameter mode
-	# by 1131120991 Younes Lariani
+	
 
 	mode=`echo $1 | tr '[:upper:]' '[:lower:]'`
 	key=`echo $2 | tr -cd '[:alpha:]' | tr '[:lower:]' '[:upper:]'`
